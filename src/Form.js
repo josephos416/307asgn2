@@ -5,26 +5,23 @@ function Form(props) {
      {
         name: "",
         job: "",
+
+
      }
   );
 
 
 function submitForm() {
   props.handleSubmit(person);
-  setPerson({name: '', job: ''});
+  setPerson({name: '', job: ''}); /*  id: ''  this was added*/
 }
 
 
-
-
-
-
-
   function handleChange(event) {
-    const { name, value } = event.target;
+    const { name, value} = event.target; /* added id*/
     if (name === "job")
       setPerson(
-         {name: person['name'], job: value}
+         {name: person['name'], job: value  }
       );
     else
        setPerson(
@@ -40,16 +37,23 @@ function submitForm() {
          <input
            type="text"
            name="name"
-           id="name"
+
            value={person.name}
            onChange={handleChange} />
          <label htmlFor="job">Job</label>
          <input
            type="text"
            name="job"
-           id="job"
+
+
+
            value={person.job}
            onChange={handleChange} />
+
+
+
+
+
            <input type="button" value="Submit" onClick={submitForm} />
        </form>
    );
